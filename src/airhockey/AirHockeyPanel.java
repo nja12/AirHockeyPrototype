@@ -4,7 +4,11 @@
  */
 package airhockey;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -19,11 +23,15 @@ import javax.swing.Timer;
 
 public class AirHockeyPanel extends JPanel {
     
-    private int courtX, courtY;
+    private HockeyCourtPanel courtPanel = new HockeyCourtPanel();
+    private ScorePanel scorePanel = new ScorePanel();
     private Timer timer;
+    private LayoutManager layout = new GridLayout(2, 1);
+    
 
     public AirHockeyPanel() {
-        this.setPreferredSize(new Dimension(800, 1000));
+        this.setPreferredSize(new Dimension(2000, 1000));
+        add(courtPanel);
         Listener timerListener = new Listener();
         timer = new Timer(5, timerListener);
     }
@@ -38,12 +46,29 @@ public class AirHockeyPanel extends JPanel {
         
         }
     
-private class HockeyCourtPanel extends JPanel {
+    private class HockeyCourtPanel extends JPanel {
+        
+        private int courtX = 700;
+        private int courtY = 900;
 
-        public HockeyCourtPanel() {
+        public HockeyCourtPanel() { 
+            this.setPreferredSize(new Dimension(800, 1000));
             
         }
         
-}
+        @Override
+            public void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.setColor(Color.blue);
+            g.drawRect(50, 50, courtX, courtY); //draws the court
+            g.setColor(Color.red);
+            g.drawOval(325, 425, 150, 150); // draws center circle
+            g.drawLine(50, 500, 750, 500); // draws center line
+            g.setColor(Color.black);
+            g.fillRect(325, 25, 150, 25); // draws the goals
+            g.fillRect(325, 950, 150, 25);
+            }
+        
+    }
     
 }
