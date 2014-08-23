@@ -48,8 +48,9 @@ public class AirHockeyPanel extends JPanel {
     
     private class HockeyCourtPanel extends JPanel {
         
-        private int courtX = 700;
-        private int courtY = 900;
+        private final int courtX = 700;
+        private final int courtY = 900;
+        private Puck puck = new Puck(350, 350);
 
         public HockeyCourtPanel() { 
             this.setPreferredSize(new Dimension(800, 1000));
@@ -67,6 +68,7 @@ public class AirHockeyPanel extends JPanel {
             g.setColor(Color.black);
             g.fillRect(325, 25, 150, 25); // draws the goals
             g.fillRect(325, 950, 150, 25);
+            puck.displayPuck(g);
             }
         
     }
