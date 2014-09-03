@@ -24,9 +24,28 @@ public class Puck {
         this.x = x;
         this.y = y;
     }
+    public void updatePosition(){
+        checkWallContact();
+        x += movex;
+        y += movey;
+    }
     public void displayPuck(Graphics g){
         g.setColor(Color.black);
         g.fillOval((int)x, (int)y, 40, 40); 
+    }
+    public void checkWallContact(){
+            if(x <= 50){
+                movex = 1;
+            }
+            if(x >= 710){
+                movex = -1;
+            }
+            if(y >= 910){
+                movey = -1;
+            }
+            if(y <= 40){
+                movey = 1;
+            }        
     }
 
     public double getX() {
