@@ -11,6 +11,8 @@ import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -29,6 +31,7 @@ public class AirHockeyPanel extends JPanel {
     private LayoutManager layout = new GridLayout(2, 1);
     private Puck puck = new Puck(350, 350);
     private Paddle paddle = new Paddle(350, 850);
+    KeyListener keyListen = new KeyListen();
     
 /** creates the main panel and adds score panel and court panel to it */
     public AirHockeyPanel() {
@@ -50,6 +53,28 @@ public class AirHockeyPanel extends JPanel {
             courtPanel.repaint();
         }  
         }
+     /** KeyListener */
+    private class KeyListen implements KeyListener{
+
+        @Override
+        public void keyTyped(KeyEvent ke) {
+        }
+        @Override
+        public void keyPressed(KeyEvent ke) {
+            int key = ke.getKeyCode();
+            if(key == KeyEvent.VK_RIGHT){
+            }
+            if(key == KeyEvent.VK_LEFT){
+            }
+            if(key == KeyEvent.VK_UP){
+            }
+            if(key == KeyEvent.VK_DOWN){
+            }
+        }
+        @Override
+        public void keyReleased(KeyEvent ke) {    
+        }
+    }
     
     private class HockeyCourtPanel extends JPanel {
         
