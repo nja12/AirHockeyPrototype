@@ -36,10 +36,16 @@ public class AirHockeyPanel extends JPanel {
 /** creates the main panel and adds score panel and court panel to it */
     public AirHockeyPanel() {
         this.setPreferredSize(new Dimension(2000, 1000));
+        addKeyListener(keyListen);
         add(courtPanel);
         Listener timerListener = new Listener();
         timer = new Timer(5, timerListener);
         timer.start();
+    }
+       /** Gives AirHockey panel the keyboard focus */
+    public void setFocused(){
+        this.setFocusable(true);
+        this.requestFocus();
     }
     
     /** Timer Listener */
@@ -63,12 +69,16 @@ public class AirHockeyPanel extends JPanel {
         public void keyPressed(KeyEvent ke) {
             int key = ke.getKeyCode();
             if(key == KeyEvent.VK_RIGHT){
+                paddle.moveRight();
             }
             if(key == KeyEvent.VK_LEFT){
+                paddle.moveLeft();
             }
             if(key == KeyEvent.VK_UP){
+                paddle.moveUP();
             }
             if(key == KeyEvent.VK_DOWN){
+                paddle.moveDown();
             }
         }
         @Override

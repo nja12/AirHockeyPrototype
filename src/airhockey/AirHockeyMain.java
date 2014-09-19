@@ -19,5 +19,6 @@ public class AirHockeyMain {
         frame.setContentPane(hockey);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        hockey.setFocused();
     }
 }
