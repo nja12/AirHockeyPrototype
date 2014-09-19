@@ -21,6 +21,9 @@ public class Paddle {
     public Paddle(double x, double y) {
         this.x = x;
         this.y = y;
+        yspeed = 20;
+        xspeed = 20;
+        
     }
     
     public void displayPaddle(Graphics g){
@@ -59,9 +62,16 @@ public class Paddle {
     public void setYspeed(double yspeed) {
         this.yspeed = yspeed;
     }
-    
-    
-    
-    
-    
+    public void moveRight(){
+        x = x + xspeed;
+    }
+    public void moveLeft(){
+        x = x - xspeed;   
+    }
+    public void moveUP(){
+        y = y - yspeed;
+    }
+    public void moveDown(){
+        y = y + yspeed;
+    }
 }
